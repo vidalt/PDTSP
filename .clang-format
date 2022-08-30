@@ -1,0 +1,9 @@
+BasedOnStyle: Google
+
+ColumnLimit: '110'
+IndentWidth: 2
+AllowShortLoopsOnASingleLine: false
+SortIncludes: true
+IndentAccessModifiers: true
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false

@@ -1,0 +1,15 @@
+**.o
+**/.ipynb_checkpoints/*
+*.log
+**/Makefile
+**/build*
+**.pro.user
+**.out.*
+**/ui_*.h
+**/moc_*
+.qmake.stash
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/release/
+/.idea/
