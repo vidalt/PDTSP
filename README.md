@@ -1,5 +1,5 @@
 
-[![CI_Build](https://github.com/tonitsp/tsppd/actions/workflows/CI_Build.yml/badge.svg)](https://github.com/tonitsp/tsppd/actions/workflows/CI_Build.yml)
+[![CI_Build](https://github.com/vidalt/PDTSP/actions/workflows/CI_Build.yml/badge.svg)](https://github.com/vidalt/PDTSP/actions/workflows/CI_Build.yml)
 
 # Exponential-Size Neighborhoods for the Pickup-and-Delivery Traveling Salesman Problem
 

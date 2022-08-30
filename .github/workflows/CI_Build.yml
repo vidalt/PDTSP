@@ -2,9 +2,9 @@ name: CI_Build
 
 on:
   push:
-    branches: [ "master", "TS_2022" ]
+    branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "master", "TS_2022" ]
+    branches: [ "main", "dev" ]
 
 jobs:
   build:
