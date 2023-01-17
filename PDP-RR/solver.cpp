@@ -199,7 +199,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
   boost::program_options::variables_map variablesMap = Application::initializeVariablesMap(argc, argv);
 
-  uint seed = (uint)variablesMap["seed"].as<int>();
+  unsigned int seed = (unsigned int)variablesMap["seed"].as<int>();
   std::srand(seed);
 
   if (variablesMap["instance"].empty())  // solve only one instance specified by

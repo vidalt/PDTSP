@@ -18,6 +18,7 @@
 #ifdef BALAS_SIMONETTI
 
 #include "bsgraph.h"
+#include "time.h"
 
 #include <algorithm>
 #include <cassert>
@@ -162,18 +163,18 @@ BSGraph::BSGraph(unsigned int k, unsigned int nLocations, double **distMatrix, c
   hashMultiplier =
       next_prime(nLocations + 1);  // +1 because depots may be duplicated (first and last stop-point)
   cachedMultipliers.assign(nLocations + 1, 1);
-  for (uint i = 1; i < nLocations + 1; i++)
+  for (unsigned int i = 1; i < nLocations + 1; i++)
     cachedMultipliers[i] = (cachedMultipliers[i - 1] * hashMultiplier) % BIG_PRIME;
 
   // calculating and caching individual hash codes for each depot/client
   cachedHashCodes.assign(nLocations + 1, 1);
-  for (uint i = 1; i < nLocations + 1; i++)
+  for (unsigned int i = 1; i < nLocations + 1; i++)
     cachedHashCodes[i] = (cachedMultipliers[i] * (i + 1));  // % BIG_PRIME;
 
   // calculating and caching individual hash codes for each depot/client (second
   // hash function)
   cachedHashCodesRev.assign(nLocations + 1, 1);
-  for (uint i = 1; i < nLocations + 1; i++)
+  for (unsigned int i = 1; i < nLocations + 1; i++)
     cachedHashCodesRev[i] = (cachedHashCodesRev[i - 1] * 31 + (i + 1));  // % BIG_PRIME;
 
   if (CACHE_RESULTS) {
@@ -340,7 +341,7 @@ void BSGraph::createNodes() {
 
   // sorting nodes according to their minK and setting their ids
   stable_sort(nodes.begin(), nodes.end(), lessptr<BSNode *>());
-  for (uint i = 0; i < nodes.size(); i++)
+  for (unsigned int i = 0; i < nodes.size(); i++)
     nodes[i]->id = i;
   for (vector<BSNode *>::iterator nodeIt = nodes.begin(); nodeIt != nodes.end(); nodeIt++) {
     BSNode *node = *nodeIt;
@@ -488,7 +489,7 @@ bool BSGraph::runBS(vector<int> &sequence, const int firstIndex, const int lastI
   if (BSGRAPH_DEBUG) {
     // calculating and printing the initial cost
     double initialCost = 0;
-    for (uint i = 1; i < sequence.size(); i++) {
+    for (unsigned int i = 1; i < sequence.size(); i++) {
       int prevLayer = i - 1;
       int nextLayer = i == sequence.size() ? 0 : i;
       initialCost += getDistance(sequence[prevLayer], sequence[nextLayer]);

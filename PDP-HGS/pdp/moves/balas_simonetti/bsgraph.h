@@ -21,6 +21,7 @@
 #define BSGRAPH_H
 
 #include <stdlib.h>
+#include <time.h>
 
 #include <list>
 #include <set>
