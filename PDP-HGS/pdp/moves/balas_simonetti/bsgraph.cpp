@@ -18,6 +18,7 @@
 #ifdef BALAS_SIMONETTI
 
 #include "bsgraph.h"
+#include "time.h"
 
 #include <algorithm>
 #include <cassert>
