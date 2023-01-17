@@ -1,7 +1,7 @@
 #include "hgsadc.h"
 
 #include <algorithm>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 #include "hgsadc/adcpopulation.h"
 #include "utils/application.h"

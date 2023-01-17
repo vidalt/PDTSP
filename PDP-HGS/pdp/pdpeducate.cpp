@@ -181,9 +181,9 @@ std::string Educate::MovesLog(bool percent) const {
     else {
       extra = move->ExtraInfo();
       if (extra == 0) {
-        sprintf(buff, "%lu  ", move->Count());
+        sprintf(buff, "%zu  ", move->Count());
       } else {
-        sprintf(buff, "%lu(%s) ", move->Count(), extra);
+        sprintf(buff, "%zu(%s) ", move->Count(), extra);
       }
     }
 
@@ -191,7 +191,7 @@ std::string Educate::MovesLog(bool percent) const {
   }
 
   if (!percent) {
-    sprintf(buff, "(EDUCATE: %lu)", educateCount);
+    sprintf(buff, "(EDUCATE: %zu)", educateCount);
     s += buff;
   }
 

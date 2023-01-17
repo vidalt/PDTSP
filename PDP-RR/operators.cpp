@@ -195,7 +195,7 @@ Instance::NodeList Operators::WorstRemoval(const Instance& instance, Solution& s
   }
 
   std::sort(pickupsOrder.begin(), pickupsOrder.end(),
-            [&, removalCosts](int a, int b) { return removalCosts[a] < removalCosts[b]; });
+            [&, removalCosts](double a, double b) { return removalCosts[a] < removalCosts[b]; });
 
   Instance::NodeList removedRequests;
   for (int i = 0; i < q; i++) {

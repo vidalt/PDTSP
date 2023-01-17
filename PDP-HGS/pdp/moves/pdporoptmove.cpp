@@ -189,7 +189,7 @@ size_t PDPOroptMove::ResetCount() {
 
 const char* PDPOroptMove::ExtraTotalInfo() const {
   if (countTotalFast + countTotalSlow) {
-    sprintf((char*)extraInfoBuffer, "fst=%lu;slw=%lu", countTotalFast, countTotalSlow);
+    sprintf((char*)extraInfoBuffer, "fst=%zu;slw=%zu", countTotalFast, countTotalSlow);
     return extraInfoBuffer;
   } else {
     return nullptr;
@@ -198,7 +198,7 @@ const char* PDPOroptMove::ExtraTotalInfo() const {
 
 const char* PDPOroptMove::ExtraInfo() const {
   if (countFast + countSlow) {
-    sprintf((char*)extraInfoBuffer, "fst=%lu,slw=%lu", countFast, countSlow);
+    sprintf((char*)extraInfoBuffer, "fst=%zu,slw=%zu", countFast, countSlow);
     return extraInfoBuffer;
   } else {
     return nullptr;

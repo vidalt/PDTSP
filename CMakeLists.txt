@@ -1,8 +1,10 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.15)
 project(pdtsp)
 
 set(EXECUTABLE_OUTPUT_PATH "./")
+if(NOT MSVC)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -O3 -m64 -march=native -fPIC")
+endif()
 
 add_definitions(
     -D_REENTRANT
@@ -49,10 +51,18 @@ include_directories(pdprr PDP-RR)
 
 add_executable(pdphgs ${SOURCE_FILES_HGS})
 add_executable(pdprr ${SOURCE_FILES_RR})
-
+if(DEFINED ENV{BOOST_ROOT})
+set(Boost_ROOT $ENV{BOOST_ROOT})
+elseif(DEFINED ENV{BOOSTROOT})
+set(Boost_ROOT $ENV{BOOSTROOT})
+else()
+return()
+endif()
+file(GLOB BOOST_SEARCH_PATHS $ENV{Boost_ROOT}/stage/lib/cmake/Boost-*)
+find_path(Boost_DIR NAMES BoostConfig.cmake PATHS ${BOOST_SEARCH_PATHS})
 find_package(Boost COMPONENTS program_options filesystem system regex)
 if (Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
+    include_directories(${BOOST_INCLUDE_DIRS})
 
     target_link_libraries(pdphgs ${Boost_LIBRARIES})
     target_link_libraries(pdprr ${Boost_LIBRARIES})

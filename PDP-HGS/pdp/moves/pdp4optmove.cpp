@@ -72,7 +72,7 @@ const char *PDP4optMove::ExtraTotalInfo() const {
 
 const char *PDP4optMove::ExtraInfo() const {
   if (countDD + countDC + countCD) {
-    sprintf((char *)extraInfoBuffer, "dc=%lu,cd=%lu,dd=%lu", countDC, countCD, countDD);
+    sprintf((char *)extraInfoBuffer, "dc=%zu,cd=%zu,dd=%zu", countDC, countCD, countDD);
     return extraInfoBuffer;
   } else {
     return 0;
