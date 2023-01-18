@@ -23,7 +23,7 @@ SOFTWARE.*/
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#define TOSTR_(x...) #x
+#define TOSTR_(x) #x
 #define STRINGIZE_VALUE_OF(x) TOSTR_(x)
 
 #define DEFAULT_SEED 0
